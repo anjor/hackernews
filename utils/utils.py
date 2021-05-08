@@ -65,8 +65,3 @@ def get_last_n_job_postings(n=1):
 def search_comments(post, search_string, max_num_comments=None):
     comments = get_comments(post, max_num_comments)
     return [comment for comment in comments if re.search(search_string, comment['text'])]
-# To do
-
-# parse comments from who is hiring
-# search for location: London/Europe
-# find the poster --> look at their other posts
