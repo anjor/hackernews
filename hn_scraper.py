@@ -1,11 +1,8 @@
-from utils import get_item, get_all_who_is_hiring_posts
+from utils import *
 
 if __name__ == '__main__':
-    post_ids = get_all_who_is_hiring_posts()['submitted']
-    post_ids.sort(reverse=True)
-    latest_post = get_item(post_ids[0])
-    comment_ids = latest_post['kids']
+    latest_job_post = get_last_n_job_postings()[0]
+    comments = search_comments(latest_job_post, '(?i)London', 100)
+    print([comment['by'] for comment in comments])
 
-    for comment_id in comment_ids:
-        print(get_item(comment_id))
 
